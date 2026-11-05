@@ -1,0 +1,12 @@
+pkgbase = distrolinux
+	pkgdesc = Linux environment readiness checker
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/nhnhyhoom0-bot/sahab-lab-7kq
+	arch = any
+	license = custom:UNLICENSED
+	depends = python
+	source = distrolinux::git+https://github.com/nhnhyhoom0-bot/sahab-lab-7kq.git#commit=6e70f5645ad97124c25e374bb31b552abe28ba4f
+	sha256sums = SKIP
+
+pkgname = distrolinux
