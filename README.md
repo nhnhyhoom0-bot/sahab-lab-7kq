@@ -1,50 +1,28 @@
-# Linux Environment Tester
+# DistroLinux
 
-This repository contains a lightweight CLI utility for testing a Linux environment before running builds, scripts, or automation tasks.
+DistroLinux is a lightweight command-line tool for checking whether a Linux environment is ready for development, builds, scripts, or automation.
 
-## What it checks
+## Checks
 
-- OS and kernel details
-- User context and writable home/temp directories
-- Common developer tools (`bash`, `git`, `curl`, `python3`, `gcc`, `make`)
-- Installed package manager
-- Ping and HTTP connectivity
-- DNS / hostname resolution
+- Linux distribution, kernel, and architecture details
+- User context and writable `/tmp` and home directory
+- Common developer tools: `bash`, `git`, `curl`, `python3`, `gcc`, and `make`
+- Available package manager
+- Ping and HTTPS connectivity
+- Hostname resolution
 
 ## Usage
 
 ```bash
-python3 linux_env_tester.py
+python3 distrolinux.py
 ```
 
-JSON output:
+For machine-readable JSON output:
 
 ```bash
-python3 linux_env_tester.py --json
+python3 distrolinux.py --json
 ```
 
-## Example result
+The command exits with `0` if every check passes, or `1` if one or more checks fail. Network checks may fail in restricted or offline environments; this does not necessarily mean the local Linux environment is unusable.
 
-```text
-Linux Environment Test
-========================
-System: Linux 6.8.0-52-generic (x86_64)
-Distribution: Ubuntu
-
-[PASS] user_context: user=root, root=True
-[PASS] tmp_writable: /tmp writable
-[PASS] tool_bash: bash available
-[FAIL] tool_gcc: gcc missing
-...
-
-Summary: 11/12 checks passed
-```
-
-## Exit codes
-
-- `0`: all checks passed
-- `1`: one or more checks failed
-
-## License
-
-This project is intentionally minimal and ready to extend for your own lab/test environment requirements.
+The old `linux_env_tester.py` filename remains as a compatibility entry point and forwards to DistroLinux.
